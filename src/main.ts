@@ -17,7 +17,7 @@ async function bootstrap() {
   
   SwaggerModule.setup('swagger', app, document);
 
-  app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalPipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true })); // O whitelist ignora todos os outros parametros, so entra os que estou pedindo
   await app.listen(3000);
 }
 bootstrap();
