@@ -1,16 +1,15 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { Repository } from 'typeorm';
-import { TodoEntity } from './entity/todo.entity';
 import { InjectRepository } from '@nestjs/typeorm';
-import { NotFoundError, throwError } from 'rxjs';
+import { Repository } from 'typeorm';
 import { CreateTodoDto } from './dto/create-todo.dto';
 import { UpdateTodoDto } from './dto/update-todo.dto';
+import { TodoEntity } from './entity/todo.entity';
 
 @Injectable()
 export class TodoService {
     constructor(
         @InjectRepository(TodoEntity)
-        private readonly todoRepository: Repository<TodoEntity>
+        private readonly todoRepository: Repository<TodoEntity>,
     ) {}
 
     async findAll() {

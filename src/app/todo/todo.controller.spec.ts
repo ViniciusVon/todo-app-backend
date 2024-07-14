@@ -62,7 +62,7 @@ describe('TodoController', () => {
       jest.spyOn(todoService, 'findAll').mockRejectedValueOnce(new Error());
 
       //Assert
-      expect(todoController.index()).rejects.toThrowError();
+      expect(todoController.index()).rejects.toThrow(new Error());
     });
   });
 
@@ -92,7 +92,7 @@ describe('TodoController', () => {
       jest.spyOn(todoService, 'create').mockRejectedValueOnce(new Error());
 
       // Assert
-      expect(todoController.create(body)).rejects.toThrowError();
+      expect(todoController.create(body)).rejects.toThrow(new Error());
     })
   });
 
@@ -112,7 +112,7 @@ describe('TodoController', () => {
       jest.spyOn(todoService, 'findOneOrFail').mockRejectedValueOnce(new Error());
 
       // Assert
-      expect(todoController.show('1')).rejects.toThrowError();
+      expect(todoController.show('1')).rejects.toThrow(new Error());
     });
   });
 
@@ -143,7 +143,7 @@ describe('TodoController', () => {
       jest.spyOn(todoService, 'update').mockRejectedValueOnce(new Error());
 
       // Assert
-      expect(todoController.update('1', body)).rejects.toThrowError();
+      expect(todoController.update('1', body)).rejects.toThrow(new Error());
     });
   });
 
@@ -161,7 +161,7 @@ describe('TodoController', () => {
       jest.spyOn(todoService, 'deleteById').mockRejectedValueOnce(new Error());
 
       // Assert
-      expect(todoController.destroy('1')).rejects.toThrowError();
+      expect(todoController.destroy('1')).rejects.toThrow(new Error());
     })
   });
 });
